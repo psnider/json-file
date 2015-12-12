@@ -1,0 +1,48 @@
+{
+    "version": "1.5.3",
+    "compilerOptions": {
+        "target": "es5",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": false,
+        "noLib": false,
+        "module": "commonjs",
+        "outDir": "../generated"
+    },
+    "scripts": {
+        "postbuild": "echo after building"
+    },
+    "formatCodeOptions": {
+        "indentSize": 4,
+        "tabSize": 4,
+        "newLineCharacter": "\n",
+        "convertTabsToSpaces": true,
+        "insertSpaceAfterCommaDelimiter": true,
+        "insertSpaceAfterSemicolonInForStatements": true,
+        "insertSpaceBeforeAndAfterBinaryOperators": true,
+        "insertSpaceAfterKeywordsInControlFlowStatements": true,
+        "insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+        "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+        "placeOpenBraceOnNewLineForFunctions": false,
+        "placeOpenBraceOnNewLineForControlBlocks": false
+    },
+    "filesGlob": [
+        "**/ts/*.ts",
+        "../typings/*/*.d.ts"
+    ],
+    "files": [
+        "ts/json-file.ts",
+        "ts/test-json-file.ts",
+        "../typings/assertion-error/assertion-error.d.ts",
+        "../typings/chai/chai.d.ts",
+        "../typings/es6-promise/es6-promise.d.ts",
+        "../typings/json-file/all.d.ts",
+        "../typings/json-file/json-file.d.ts",
+        "../typings/mocha/mocha.d.ts",
+        "../typings/node/node.d.ts",
+        "../typings/tv4-via-typenames-node/tv4-via-typenames-node.d.ts",
+        "../typings/tv4-via-typenames/tv4-via-typenames.d.ts",
+        "../typings/tv4/tv4.d.ts"
+    ],
+    "exclude": []
+}

@@ -1,0 +1,5 @@
+.DS_Store
+commonjs/**
+generated/**
+node_modules/**
+**/ts/*.js
