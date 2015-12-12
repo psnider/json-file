@@ -11,9 +11,6 @@
     "node/node.d.ts": {
       "commit": "f8af639bf29b2b00e5d27ce93c0f046564b8525c"
     },
-    "tv4/tv4.d.ts": {
-      "commit": "5a8fc5ee71701431e4fdbb80c506e3c13f85a9ff"
-    },
     "chai/chai.d.ts": {
       "commit": "5a8fc5ee71701431e4fdbb80c506e3c13f85a9ff"
     },

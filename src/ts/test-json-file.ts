@@ -12,7 +12,6 @@ import json_file                = require('json-file')
 
 
 
-
 describe('json-file', function() {
 
     const VALID_JSON_FILENAME = 'test/data/test-w-Dates.json'

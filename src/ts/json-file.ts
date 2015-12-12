@@ -1,18 +1,13 @@
 /// <reference path='../../typings/node/node.d.ts' />
 /// <reference path='../../typings/es6-promise/es6-promise.d.ts' />
-/// <reference path='../../typings/tv4-via-typenames-node/tv4-via-typenames-node.d.ts' />
 /// <reference path='../../typings/json-file/json-file.d.ts' />
 
 
-
-
 import fs                               = require('fs');
-import tv4vtnNode                       = require('tv4-via-typenames-node')
-import SchemaFiles                      = tv4vtnNode.SchemaFiles
 
 
 
-// TODO: find proper home for this general function
+
 export function readJSONFile(filename : string) : Promise<{filename: string, contents: any}> {
     return new Promise((resolve, reject) => {
         fs.readFile(filename, {"encoding": "utf-8"}, (error, data) => {

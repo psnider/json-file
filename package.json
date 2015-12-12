@@ -4,7 +4,6 @@
   "description": "Utiities for JSON files.",
   "main": "index.js",
   "dependencies": {
-    "tv4-via-typenames-node": "^0.3.0"
   },
   "devDependencies": {
     "chai": "^3.4.1",

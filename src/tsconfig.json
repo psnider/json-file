@@ -39,10 +39,7 @@
         "../typings/json-file/all.d.ts",
         "../typings/json-file/json-file.d.ts",
         "../typings/mocha/mocha.d.ts",
-        "../typings/node/node.d.ts",
-        "../typings/tv4-via-typenames-node/tv4-via-typenames-node.d.ts",
-        "../typings/tv4-via-typenames/tv4-via-typenames.d.ts",
-        "../typings/tv4/tv4.d.ts"
+        "../typings/node/node.d.ts"
     ],
     "exclude": []
 }

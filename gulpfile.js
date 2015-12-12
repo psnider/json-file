@@ -52,18 +52,18 @@ gulp.task('compile-ts', function () {
                        .pipe(sourcemaps.init())
                        .pipe(tsc(tsProject));
 
-        tsResult.dts.pipe(gulp.dest(config.tsOutputPath));
-        return tsResult.js
-                        .pipe(sourcemaps.write('.'))
-                        .pipe(gulp.dest(config.tsOutputPath));
+    tsResult.dts
+        .pipe(gulp.dest(config.tsOutputPath));
+    return tsResult.js
+                   .pipe(sourcemaps.write('.'))
+                   .pipe(gulp.dest(config.tsOutputPath));
 });
 
 
-gulp.task('copy-generated', ['compile-ts'], function(done) {
-   gulp.src(['./generated/**/*.js'])
-   .pipe(flatten())
-   .pipe(gulp.dest('./commonjs'));
-   done()
+gulp.task('copy-generated', ['compile-ts'], function() {
+    return gulp.src(['./generated/**/*.js'])
+               .pipe(flatten())
+               .pipe(gulp.dest(config.nodeModulesPath));
 });
 
 
@@ -78,7 +78,7 @@ gulp.task('clean-ts', function (cb) {
                            ];
 
   // delete the files
-  del(typeScriptGenFiles, cb);
+  del([config.tsOutputPath, config.nodeModulesPath], cb);
 });
 
 gulp.task('watch', function() {
@@ -105,7 +105,8 @@ gulp.task('serve', ['compile-ts', 'watch'], function() {
 
 
 gulp.task('test-ts', ['build'], () => {
-    return gulp.src('./commonjs/test-*.js', {read: false})
+    var tests = config.nodeModulesPath + 'test-*.js'
+    return gulp.src(tests, {read: false})
         // gulp-mocha needs filepaths so you can't have any plugins before it
         .pipe(mocha({reporter: 'spec'}));
 });
