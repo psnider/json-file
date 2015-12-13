@@ -1,54 +1,38 @@
 'use strict';
 
-var gulp = require('gulp'),
-    debug = require('gulp-debug'),
-    inject = require('gulp-inject'),
-    tsc = require('gulp-typescript'),
-    tslint = require('gulp-tslint'),
-    sourcemaps = require('gulp-sourcemaps'),
-    del = require('del'),
-    Config = require('./gulpfile.config'),
-    tsProject = tsc.createProject('src/tsconfig.json'),
-    browserSync = require('browser-sync'),
-    superstatic = require( 'superstatic' ),
-    flatten = require('gulp-flatten'),
-    mocha = require('gulp-mocha')
+var gulp = require('gulp')
+var debug = require('gulp-debug')
+var flatten = require('gulp-flatten')
+var inject = require('gulp-inject')
+var mocha = require('gulp-mocha')
+var sourcemaps = require('gulp-sourcemaps')
+var tslint = require('gulp-tslint')
+var tsc = require('gulp-typescript')
+var tsProject = tsc.createProject('tsconfig.json')
+var del = require('del')
+var Config = require('./gulpfile.config')
+var browserSync = require('browser-sync')
+var superstatic = require('superstatic')
 
 
 
-var config = new Config();
+var config = new Config()
 
-/**
- * Generates the app.d.ts references file dynamically from all application *.ts files.
- */
-// gulp.task('gen-ts-refs', function () {
-//     var target = gulp.src(config.appTypeScriptReferences);
-//     var sources = gulp.src([config.allTypeScript], {read: false});
-//     return target.pipe(inject(sources, {
-//         starttag: '//{',
-//         endtag: '//}',
-//         transform: function (filepath) {
-//             return '/// <reference path="../..' + filepath + '" />';
-//         }
-//     })).pipe(gulp.dest(config.typings));
-// });
 
 /**
  * Lint all custom TypeScript files.
  */
 gulp.task('ts-lint', function () {
-    return gulp.src(config.allTypeScript).pipe(tslint()).pipe(tslint.report('prose'));
+    return gulp.src(config.allTypeScript)
+               .pipe(tslint())
+               .pipe(tslint.report('prose'));
 });
 
 /**
  * Compile TypeScript and include references to library and app .d.ts files.
  */
 gulp.task('compile-ts', function () {
-    var sourceTsFiles = [config.allTypeScript,                //path to typescript files
-                         config.libraryTypeScriptDefinitions]; //reference to library .d.ts files
-
-
-    var tsResult = gulp.src(sourceTsFiles)
+    var tsResult = gulp.src(config.allTypeScript)
                        .pipe(sourcemaps.init())
                        .pipe(tsc(tsProject));
 
@@ -97,7 +81,7 @@ gulp.task('serve', ['compile-ts', 'watch'], function() {
     notify: true,
     reloadDelay: 0,
     server: {
-      baseDir: './src',
+      baseDir: '.',
       middleware: superstatic({ debug: false})
     }
   });

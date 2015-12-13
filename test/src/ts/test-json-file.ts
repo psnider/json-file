@@ -1,7 +1,7 @@
-/// <reference path='../../typings/node/node.d.ts' />
-/// <reference path='../../typings/mocha/mocha.d.ts' />
-/// <reference path='../../typings/chai/chai.d.ts' />
-/// <reference path='../../typings/json-file/json-file.d.ts' />
+/// <reference path='../../../typings/node/node.d.ts' />
+/// <reference path='../../../typings/mocha/mocha.d.ts' />
+/// <reference path='../../../typings/chai/chai.d.ts' />
+/// <reference path='../../../typings/json-file/json-file.d.ts' />
 
 
 import CHAI                     = require('chai')

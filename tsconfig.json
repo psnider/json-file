@@ -7,7 +7,7 @@
         "removeComments": false,
         "noLib": false,
         "module": "commonjs",
-        "outDir": "../generated"
+        "outDir": "generated"
     },
     "scripts": {
         "postbuild": "echo after building"
@@ -27,19 +27,20 @@
         "placeOpenBraceOnNewLineForControlBlocks": false
     },
     "filesGlob": [
-        "**/ts/*.ts",
-        "../typings/*/*.d.ts"
+        "src/**/ts/*.ts",
+        "test/**/ts/*.ts",
+        "typings/*/*.d.ts"
     ],
     "files": [
-        "ts/json-file.ts",
-        "ts/test-json-file.ts",
-        "../typings/assertion-error/assertion-error.d.ts",
-        "../typings/chai/chai.d.ts",
-        "../typings/es6-promise/es6-promise.d.ts",
-        "../typings/json-file/all.d.ts",
-        "../typings/json-file/json-file.d.ts",
-        "../typings/mocha/mocha.d.ts",
-        "../typings/node/node.d.ts"
+        "src/ts/json-file.ts",
+        "test/src/ts/test-json-file.ts",
+        "typings/assertion-error/assertion-error.d.ts",
+        "typings/chai/chai.d.ts",
+        "typings/es6-promise/es6-promise.d.ts",
+        "typings/json-file/all.d.ts",
+        "typings/json-file/json-file.d.ts",
+        "typings/mocha/mocha.d.ts",
+        "typings/node/node.d.ts"
     ],
     "exclude": []
 }
