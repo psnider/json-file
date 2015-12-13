@@ -1,10 +1,15 @@
 {
   "name": "json-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utiities for JSON files.",
-  "main": "index.js",
+  "main": "commonjs/json-file.js",
   "dependencies": {
   },
+  "files": [
+    "typings/json-file/json-file.d.ts",
+    "commonjs/json-file.js",
+    "package.json"
+  ],
   "devDependencies": {
     "chai": "^3.4.1",
     "del": "^2.2.0",
