@@ -14,6 +14,7 @@ function readJSONFile(filename) {
                     resolve({ filename: filename, contents: obj });
                 }
                 catch (error) {
+                    error.message += ', in filename=' + filename;
                     reject(error);
                 }
             }

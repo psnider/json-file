@@ -57,7 +57,7 @@ describe('json-file', function() {
                     done(new Error('promise resolved'))
                 },
                 (error) => {
-                    expect(error.message).to.equal("Unexpected token }")
+                    expect(error.message).to.equal("Unexpected token }, in filename=" + INVALID_JSON_FILENAME)
                     done()
                 }
             )

@@ -8,7 +8,7 @@ import fs                               = require('fs');
 
 
 
-export function readJSONFile(filename : string) : Promise<{filename: string, contents: any}> {
+export function readJSONFile(filename : string) : Promise<JSONFile.FilenameWContents> {
     return new Promise((resolve, reject) => {
         fs.readFile(filename, {"encoding": "utf-8"}, (error, data) => {
             if (error) {
@@ -18,6 +18,7 @@ export function readJSONFile(filename : string) : Promise<{filename: string, con
                     var obj = JSON.parse(data);
                     resolve({filename: filename, contents: obj});
                 } catch (error) {
+                    error.message += ', in filename=' + filename
                     reject(error);
                 }
             }
@@ -44,7 +45,7 @@ function convertJSONObjOrArrayToTypedObject(json_obj : any, convertJSONObjToType
 
 
 // @arg: typename: The typename for the type in the JSON file.
-export function loadDatabaseFromJSONFile(filename : string, convertJSONObjToTypedObj? : (json_obj : any) => void, validate?: JSONFile.Validate, typename?: string): Promise<any> {
+export function loadDatabaseFromJSONFile(filename : string, convertJSONObjToTypedObj? : (json_obj : any) => void, validate?: JSONFile.Validate, typename?: string): Promise<JSONFile.FilenameWContents> {
     // @throws An error if the object is not valid..
     function checkValidity(obj) {
         if (Array.isArray(obj)) {
